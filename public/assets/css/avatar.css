@@ -1,0 +1,70 @@
+.av_heading {
+    text-align: center;
+}
+.image-input {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.image-input img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+#fileInput {
+    display: none;
+}
+
+.avatar-main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    input,
+    textarea {
+        padding: 12px 18px;
+        border-radius: 5px;
+        border: #00000026 solid 1px;
+    }
+    .name-inputs {
+        display: flex;
+        gap: 20px;
+        div {
+            flex-grow: 1;
+        }
+    }
+    .input-field {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .submit-field button {
+        background-color: #005eb5;
+        color: #fff;
+        padding: 10px 22px;
+        border-radius: 6px;
+        border: none;
+        float: right;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            background-color: #118afb;
+        }
+    }
+    @media screen and (max-width: 600px) {
+        .name-inputs {
+            flex-direction: column;
+        }
+    }
+}

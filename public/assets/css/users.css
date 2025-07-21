@@ -1,0 +1,105 @@
+.users-main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    h1 {
+        text-align: center;
+        font-size: 24px;
+    }
+    .user-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .card {
+        padding: 12px;
+        border-radius: 12px;
+        background-color: white;
+        border: solid 1px #3582e71a;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        overflow: hidden;
+    }
+    .user-image img {
+        width: 100%;
+        aspect-ratio: 5/4;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+    .info-div {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: center;
+        h3,
+        h5 {
+            color: #414141;
+            font-size: 14px;
+            font-weight: 400;
+        }
+        span {
+            font-size: 12px;
+            font-weight: 500;
+        }
+    }
+    a {
+        padding: 4px 22px;
+        border-radius: 6px;
+        background-color: #005eb5;
+        color: white;
+        transition: all 0.3s;
+        text-decoration: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+        align-self: anchor-center;
+        &:hover {
+            background-color: #40a3ff;
+        }
+    }
+    .pagination{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        align-items: center;
+        button{
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background-color: #005eb5;
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    }
+}
+}
+.custom-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 991px) {
+    .custom-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .custom-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .custom-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

@@ -1,0 +1,62 @@
+.book-title-main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .av_heading {
+        text-align: center;
+    }
+    input,
+    textarea {
+        padding: 12px 18px;
+        border-radius: 5px;
+        border: #00000026 solid 1px;
+    }
+    .input-fields {
+        display: flex;
+        gap: 20px;
+        div {
+            flex-grow: 1;
+        }
+    }
+    .input-field {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .submit-field {
+        display: flex;
+        justify-content: end;
+        gap: 20px;
+        button {
+            padding: 10px 22px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            transition: all 0.3s ease-in-out;
+        }
+        .save-btn {
+            background-color: #005eb5;
+            &:hover {
+                background-color: #40a3ff;
+            }
+        }
+        .prev-btn {
+            background-color: #767171;
+            &:hover {
+                background-color: #474747;
+            }
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .input-fields {
+            flex-direction: column;
+        }
+    }
+}

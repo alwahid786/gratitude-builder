@@ -1,0 +1,124 @@
+.outline-main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .av_heading {
+        text-align: center;
+    }
+    input,
+    textarea {
+        padding: 10px 18px;
+        border-radius: 5px;
+        border: #00000026 solid 1px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    button {
+        padding: 10px 22px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        color: white;
+        transition: all 0.3s ease-in-out;
+        background-color: #005eb5;
+        &:hover {
+            background-color: #40a3ff;
+        }
+    }
+    h5 {
+        color: #414141;
+        font-size: 16px;
+    }
+    .field-box {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .inner-field {
+        display: flex;
+        align-items: start;
+        gap: 20px;
+        div:first-child {
+            flex-grow: 1;
+        }
+    }
+    .explore-ai-field {
+        .textarea-container {
+            border: solid 1px #00000026;
+            border-radius: 6px;
+            position: relative;
+            textarea {
+                border: none;
+                width: 100%;
+            }
+            #charCount {
+                position: absolute;
+                bottom: 0;
+                right: 10px;
+            }
+        }
+    }
+    .respond-field {
+        textarea {
+            border: solid 1px #00000026;
+            border-radius: 6px;
+            width: 100%;
+        }
+    }
+    .submit-field {
+        display: flex;
+        justify-content: end;
+        gap: 20px;
+        button {
+            padding: 10px 22px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+    .av_heading {
+        color: #005eb5;
+        font-weight: 600;
+    }
+    .removeOutlineData {
+        border-radius: 50%;
+        background-color: rgb(243, 90, 67);
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+    }
+    .custom-title,
+    .outline {
+        user-select: none;
+    }
+    .prev-btn {
+        background-color: #767171;
+        &:hover {
+            background-color: #474747;
+        }
+    }
+    @media screen and (max-width: 500px) {
+        .inner-field {
+            flex-direction: column;
+            div {
+                width: 100%;
+            }
+        }
+    }
+    .pdf-btn{
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        button{
+            padding: 10px;
+            border-radius: 50%;
+            background-color: #007bff;
+        }
+    }
+}
