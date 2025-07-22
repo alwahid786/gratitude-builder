@@ -96,7 +96,6 @@ class AuthController extends Controller
         if ($validator->fails()) {
             $messages = array_values($validator->errors()->messages());
             toastr()->error($messages[0][0]);
-            dd($validator->errors());
             return redirect()->back();
         }
         
