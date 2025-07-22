@@ -2,6 +2,213 @@
 @section('content')
 <link rel="stylesheet" href="{{ asset('assets/css/welcome.css') }}">
 <style>
+    /* User Dropdown in Container */
+    .user-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background: #fff;
+        border-bottom: 1px solid #e0e0e0;
+        border-radius: 12px 12px 0 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        margin-bottom: 20px;
+    }
+    
+    .logo {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #007bff;
+        margin: 0;
+    }
+    
+    @media (max-width: 768px) {
+        .user-header {
+            padding: 12px 16px;
+            margin-bottom: 15px;
+        }
+        
+        .logo {
+            font-size: 1.1rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .user-header {
+            padding: 10px 12px;
+            margin-bottom: 10px;
+        }
+        
+        .logo {
+            font-size: 1rem;
+        }
+    }
+    
+    .user-dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .user-dropdown-toggle {
+        background: #f8f9fa;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        padding: 8px 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-decoration: none;
+        color: #333;
+        white-space: nowrap;
+    }
+    
+    .user-dropdown-toggle:hover {
+        background: #e9ecef;
+        text-decoration: none;
+        color: #333;
+    }
+    
+    @media (max-width: 768px) {
+        .user-dropdown-toggle {
+            padding: 6px 10px;
+            gap: 6px;
+            font-size: 14px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .user-dropdown-toggle {
+            padding: 5px 8px;
+            gap: 4px;
+            font-size: 13px;
+        }
+        
+        .user-dropdown-toggle span:not(.dropdown-arrow) {
+            display: none;
+        }
+    }
+    
+    .user-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #007bff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        font-size: 14px;
+        flex-shrink: 0;
+    }
+    
+    @media (max-width: 768px) {
+        .user-avatar {
+            width: 28px;
+            height: 28px;
+            font-size: 12px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .user-avatar {
+            width: 26px;
+            height: 26px;
+            font-size: 11px;
+        }
+    }
+    
+    .dropdown-arrow {
+        font-size: 12px;
+        transition: transform 0.2s ease;
+    }
+    
+    .user-dropdown.open .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+    
+    .user-dropdown-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        min-width: 180px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.2s ease;
+        z-index: 1001;
+    }
+    
+    @media (max-width: 768px) {
+        .user-dropdown-menu {
+            min-width: 150px;
+            right: -5px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .user-dropdown-menu {
+            min-width: 120px;
+            right: -10px;
+            font-size: 14px;
+        }
+    }
+    
+    .user-dropdown.open .user-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    .dropdown-item {
+        display: block;
+        padding: 12px 16px;
+        color: #333;
+        text-decoration: none;
+        border-bottom: 1px solid #f0f0f0;
+        transition: background 0.2s ease;
+        font-size: 14px;
+    }
+    
+    .dropdown-item:last-child {
+        border-bottom: none;
+    }
+    
+    .dropdown-item:hover {
+        background: #f8f9fa;
+        text-decoration: none;
+        color: #333;
+    }
+    
+    @media (max-width: 768px) {
+        .dropdown-item {
+            padding: 10px 12px;
+            font-size: 13px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .dropdown-item {
+            padding: 8px 10px;
+            font-size: 12px;
+        }
+    }
+    
+    .logout-item {
+        color: #dc3545;
+    }
+    
+    .logout-item:hover {
+        background: #fdf2f2;
+        color: #dc3545;
+    }
+
     /* Full screen styles */
     body, html {
         margin: 0;
@@ -26,15 +233,47 @@
         overflow: hidden;
     }
     
+    @media (max-width: 768px) {
+        .container-wrapper {
+            padding: 15px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .container-wrapper {
+            padding: 10px;
+        }
+    }
+    
     .content-area {
         height: 100%;
         width: 100%;
         overflow-y: auto;
-        padding: 20px;
+        padding: 0;
         box-sizing: border-box;
         background: white;
         border-radius: 12px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .content-body {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+    }
+    
+    @media (max-width: 768px) {
+        .content-body {
+            padding: 15px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .content-body {
+            padding: 12px;
+        }
     }
     
     .gratitude-section {
@@ -42,6 +281,35 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+    }
+    
+    .gratitude-section h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #333;
+        font-size: 1.8rem;
+    }
+    
+    @media (max-width: 768px) {
+        .gratitude-section {
+            gap: 15px;
+        }
+        
+        .gratitude-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .gratitude-section {
+            gap: 12px;
+        }
+        
+        .gratitude-section h2 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
     }
     
     .story-container {
@@ -52,6 +320,20 @@
         margin-bottom: 20px;
     }
     
+    @media (max-width: 768px) {
+        .story-container {
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .story-container {
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+    }
+    
     .story-header {
         display: flex;
         justify-content: space-between;
@@ -59,11 +341,32 @@
         margin-bottom: 15px;
     }
     
+    @media (max-width: 480px) {
+        .story-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+    }
+    
     .story-title {
         font-size: 1.5rem;
         font-weight: 600;
         color: #333;
         margin: 0;
+    }
+    
+    @media (max-width: 768px) {
+        .story-title {
+            font-size: 1.3rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .story-title {
+            font-size: 1.2rem;
+        }
     }
     
     .story-badge {
@@ -319,8 +622,36 @@
 <section class="main-container">
     <div class="container-wrapper">
         <div class="content-area">
-            <div class="gratitude-section">
-                <h2 style="text-align: center; margin-bottom: 30px; color: #333;">Gratitude Story</h2>
+            <!-- User Header with Dropdown -->
+            <div class="user-header">
+                <span class="logo">
+                    <img src="{{ asset('assets/images/book-builder-logo.svg') }}" alt="Gratitude Builder Logo" style="vertical-align: middle;">
+                </span>
+                
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="#" class="user-dropdown-toggle" onclick="toggleUserDropdown(event)">
+                        <div class="user-avatar">
+                            {{ strtoupper(substr(Auth::user()->name ?? 'U', 0, 1)) }}
+                        </div>
+                        <span>{{ Auth::user()->name ?? 'User' }}</span>
+                        <span class="dropdown-arrow">▼</span>
+                    </a>
+                    
+                    <div class="user-dropdown-menu">
+                        <form action="{{ route('logout') }}" method="POST" style="margin: 0;">
+                            @csrf
+                            <button type="submit" class="dropdown-item logout-item" style="background: none; border: none; width: 100%; text-align: left; cursor: pointer;">
+                                🚪 Logout
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main Content Body -->
+            <div class="content-body">
+                <div class="gratitude-section">
+                <h2>Gratitude Story</h2>
                 
                 <!-- Story Container -->
                 <div class="story-container" id="mainStoryContainer">
@@ -439,6 +770,7 @@
                         </svg>
                         <span class="btn-text">Generate Your Story</span>
                     </button>
+                </div>
                 </div>
             </div>
         </div>
@@ -880,6 +1212,23 @@
     function formatTime(time) {
         return (time < 10 ? '0' : '') + time;
     }
+
+    // User Dropdown Toggle Function
+    function toggleUserDropdown(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        
+        const dropdown = document.getElementById('userDropdown');
+        dropdown.classList.toggle('open');
+    }
+
+    // Close dropdown when clicking outside
+    $(document).on('click', function(e) {
+        const dropdown = document.getElementById('userDropdown');
+        if (dropdown && !dropdown.contains(e.target)) {
+            dropdown.classList.remove('open');
+        }
+    });
 
     // Keyboard shortcuts
     $(document).keydown(function(e) {
