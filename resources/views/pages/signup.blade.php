@@ -95,7 +95,7 @@
     <div class="main-container">
         <div class="left-container">
             <div class="logo">
-                <img src="{{ asset('assets/images/book-builder-logo.svg') }}" alt="logo" width="150">
+                <img src="{{ asset('assets/images/logo.svg') }}" alt="logo" width="150">
             </div>
             <div class="__inner-container">
                 <h2>Sign up</h2>

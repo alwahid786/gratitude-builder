@@ -35,7 +35,7 @@ label{
     <section class="signup m-0">
         <div class="container" style="max-width: 700px; width:100%">
             <div>
-                <img src="{{asset('assets/images/book-builder-logo.svg')}}" alt="logo" class="mx-auto mt-3" width="150">
+                <img src="{{asset('assets/images/logo.svg')}}" alt="logo" class="mx-auto mt-3" width="150">
             </div>
             <div class="signup-content d-block">
                 <div class="text-center mx-auto">
