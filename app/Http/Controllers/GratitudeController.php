@@ -12,7 +12,10 @@ class GratitudeController extends Controller
     public function index()
     {
         $gratitudeStory = $this->getGratitudeStory();
-        return view('welcome', compact('gratitudeStory'));
+        $user = auth()->user();
+        $input_limit = 500; // Set a reasonable word limit for AI review
+        
+        return view('welcome', compact('gratitudeStory', 'user', 'input_limit'));
     }
    
 
@@ -72,8 +75,14 @@ class GratitudeController extends Controller
 
         $userPrompt = $request->input('gratitude');
         $sessionId = session()->getId();
+        $user = auth()->user();
 
         try {
+            // Save user's gratitude content
+            if ($user) {
+                $user->update(['gratitude' => $userPrompt]);
+            }
+
             $generatedStory = $this->generateStoryFromPrompt($userPrompt);
             
             $gratitudeStory = GratitudeStory::create([
@@ -137,5 +146,35 @@ class GratitudeController extends Controller
         }
 
         throw new \Exception('Failed to generate story from OpenAI API');
+    }
+
+    public function saveGratitude(Request $request)
+    {
+        $request->validate([
+            'gratitude' => 'required|string|max:5000',
+        ]);
+
+        $user = auth()->user();
+        if (!$user) {
+            return response()->json([
+                'success' => false,
+                'message' => 'User not authenticated.'
+            ], 401);
+        }
+
+        try {
+            $user->update(['gratitude' => $request->input('gratitude')]);
+            
+            return response()->json([
+                'success' => true,
+                'message' => 'Gratitude content saved successfully!'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to save gratitude content.',
+                'error' => $e->getMessage()
+            ], 500);
+        }
     }
 }

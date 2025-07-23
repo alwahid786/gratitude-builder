@@ -14,41 +14,41 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         margin-bottom: 20px;
     }
-    
+
     .logo {
         font-size: 1.2rem;
         font-weight: 600;
         color: #007bff;
         margin: 0;
     }
-    
+
     @media (max-width: 768px) {
         .user-header {
             padding: 12px 16px;
             margin-bottom: 15px;
         }
-        
+
         .logo {
             font-size: 1.1rem;
         }
     }
-    
+
     @media (max-width: 480px) {
         .user-header {
             padding: 10px 12px;
             margin-bottom: 10px;
         }
-        
+
         .logo {
             font-size: 1rem;
         }
     }
-    
+
     .user-dropdown {
         position: relative;
         display: inline-block;
     }
-    
+
     .user-dropdown-toggle {
         background: #f8f9fa;
         border: 1px solid #e0e0e0;
@@ -63,13 +63,13 @@
         color: #333;
         white-space: nowrap;
     }
-    
+
     .user-dropdown-toggle:hover {
         background: #e9ecef;
         text-decoration: none;
         color: #333;
     }
-    
+
     @media (max-width: 768px) {
         .user-dropdown-toggle {
             padding: 6px 10px;
@@ -77,19 +77,19 @@
             font-size: 14px;
         }
     }
-    
+
     @media (max-width: 480px) {
         .user-dropdown-toggle {
             padding: 5px 8px;
             gap: 4px;
             font-size: 13px;
         }
-        
+
         .user-dropdown-toggle span:not(.dropdown-arrow) {
             display: none;
         }
     }
-    
+
     .user-avatar {
         width: 32px;
         height: 32px;
@@ -103,7 +103,7 @@
         font-size: 14px;
         flex-shrink: 0;
     }
-    
+
     @media (max-width: 768px) {
         .user-avatar {
             width: 28px;
@@ -111,7 +111,7 @@
             font-size: 12px;
         }
     }
-    
+
     @media (max-width: 480px) {
         .user-avatar {
             width: 26px;
@@ -119,16 +119,16 @@
             font-size: 11px;
         }
     }
-    
+
     .dropdown-arrow {
         font-size: 12px;
         transition: transform 0.2s ease;
     }
-    
+
     .user-dropdown.open .dropdown-arrow {
         transform: rotate(180deg);
     }
-    
+
     .user-dropdown-menu {
         position: absolute;
         top: 100%;
@@ -144,14 +144,14 @@
         transition: all 0.2s ease;
         z-index: 1001;
     }
-    
+
     @media (max-width: 768px) {
         .user-dropdown-menu {
             min-width: 150px;
             right: -5px;
         }
     }
-    
+
     @media (max-width: 480px) {
         .user-dropdown-menu {
             min-width: 120px;
@@ -159,13 +159,13 @@
             font-size: 14px;
         }
     }
-    
+
     .user-dropdown.open .user-dropdown-menu {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
     }
-    
+
     .dropdown-item {
         display: block;
         padding: 12px 16px;
@@ -175,48 +175,49 @@
         transition: background 0.2s ease;
         font-size: 14px;
     }
-    
+
     .dropdown-item:last-child {
         border-bottom: none;
     }
-    
+
     .dropdown-item:hover {
         background: #f8f9fa;
         text-decoration: none;
         color: #333;
     }
-    
+
     @media (max-width: 768px) {
         .dropdown-item {
             padding: 10px 12px;
             font-size: 13px;
         }
     }
-    
+
     @media (max-width: 480px) {
         .dropdown-item {
             padding: 8px 10px;
             font-size: 12px;
         }
     }
-    
+
     .logout-item {
         color: #dc3545;
     }
-    
+
     .logout-item:hover {
         background: #fdf2f2;
         color: #dc3545;
     }
 
     /* Full screen styles */
-    body, html {
+    body,
+    html {
         margin: 0;
         padding: 0;
         height: 100vh;
         overflow: hidden;
     }
-    
+
     .main-container {
         height: 100vh;
         width: 100vw;
@@ -224,7 +225,7 @@
         margin: 0;
         overflow: hidden;
     }
-    
+
     .container-wrapper {
         height: 100vh;
         width: 100vw;
@@ -232,19 +233,19 @@
         box-sizing: border-box;
         overflow: hidden;
     }
-    
+
     @media (max-width: 768px) {
         .container-wrapper {
             padding: 15px;
         }
     }
-    
+
     @media (max-width: 480px) {
         .container-wrapper {
             padding: 10px;
         }
     }
-    
+
     .content-area {
         height: 100%;
         width: 100%;
@@ -257,61 +258,61 @@
         display: flex;
         flex-direction: column;
     }
-    
+
     .content-body {
         flex: 1;
         padding: 20px;
         overflow-y: auto;
     }
-    
+
     @media (max-width: 768px) {
         .content-body {
             padding: 15px;
         }
     }
-    
+
     @media (max-width: 480px) {
         .content-body {
             padding: 12px;
         }
     }
-    
+
     .gratitude-section {
         height: 100%;
         display: flex;
         flex-direction: column;
         gap: 20px;
     }
-    
+
     .gratitude-section h2 {
         text-align: center;
         margin-bottom: 30px;
         color: #333;
         font-size: 1.8rem;
     }
-    
+
     @media (max-width: 768px) {
         .gratitude-section {
             gap: 15px;
         }
-        
+
         .gratitude-section h2 {
             font-size: 1.5rem;
             margin-bottom: 20px;
         }
     }
-    
+
     @media (max-width: 480px) {
         .gratitude-section {
             gap: 12px;
         }
-        
+
         .gratitude-section h2 {
             font-size: 1.3rem;
             margin-bottom: 15px;
         }
     }
-    
+
     .story-container {
         flex: 0 0 auto;
         background: #f8f9fa;
@@ -319,28 +320,28 @@
         padding: 20px;
         margin-bottom: 20px;
     }
-    
+
     @media (max-width: 768px) {
         .story-container {
             padding: 15px;
             margin-bottom: 15px;
         }
     }
-    
+
     @media (max-width: 480px) {
         .story-container {
             padding: 12px;
             margin-bottom: 12px;
         }
     }
-    
+
     .story-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 15px;
     }
-    
+
     @media (max-width: 480px) {
         .story-header {
             flex-direction: column;
@@ -349,26 +350,26 @@
             margin-bottom: 12px;
         }
     }
-    
+
     .story-title {
         font-size: 1.5rem;
         font-weight: 600;
         color: #333;
         margin: 0;
     }
-    
+
     @media (max-width: 768px) {
         .story-title {
             font-size: 1.3rem;
         }
     }
-    
+
     @media (max-width: 480px) {
         .story-title {
             font-size: 1.2rem;
         }
     }
-    
+
     .story-badge {
         background: #007bff;
         color: white;
@@ -377,7 +378,7 @@
         font-size: 0.8rem;
         font-weight: 500;
     }
-    
+
     .story-content {
         background: white;
         padding: 15px;
@@ -386,14 +387,14 @@
         line-height: 1.6;
         color: #666;
     }
-    
+
     .samples-section {
         flex: 1;
         min-height: 0;
         display: flex;
         flex-direction: column;
     }
-    
+
     .sample-container {
         display: none;
         flex-direction: column;
@@ -405,11 +406,11 @@
         max-height: 300px;
         overflow-y: auto;
     }
-    
+
     .sample-container.active {
         display: flex;
     }
-    
+
     .sample-container img {
         width: 100%;
         max-width: 300px;
@@ -417,14 +418,14 @@
         border-radius: 6px;
         align-self: center;
     }
-    
+
     .gratitude-change {
         display: flex;
         justify-content: center;
         gap: 10px;
         margin-bottom: 20px;
     }
-    
+
     .gratitude-change a {
         width: 12px;
         height: 12px;
@@ -433,11 +434,11 @@
         display: block;
         text-decoration: none;
     }
-    
+
     .gratitude-change a.active {
         background: #007bff;
     }
-    
+
     .recording-interface {
         flex: 0 0 auto;
         background: #f8f9fa;
@@ -445,14 +446,14 @@
         padding: 20px;
         margin: 20px 0;
     }
-    
+
     .recording-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 15px;
     }
-    
+
     .recording-timer {
         display: flex;
         align-items: center;
@@ -462,7 +463,7 @@
         border-radius: 6px;
         font-family: monospace;
     }
-    
+
     .recording-indicator {
         width: 10px;
         height: 10px;
@@ -470,24 +471,35 @@
         border-radius: 50%;
         transition: all 0.3s ease;
     }
-    
+
     .recording-indicator.active {
         background: #dc3545;
         animation: pulse 2s infinite;
     }
-    
+
     @keyframes pulse {
-        0% { opacity: 1; }
-        50% { opacity: 0.5; }
-        100% { opacity: 1; }
+        0% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.5;
+        }
+
+        100% {
+            opacity: 1;
+        }
     }
-    
+
     .recording-controls {
+        display: flex;
+        align-items: center;
+        gap:15px;
         margin-top: 15px;
         padding-top: 15px;
         border-top: 1px solid #e0e0e0;
     }
-    
+
     /* Real-time Speech Display */
     .realtime-speech-display {
         background: #fff;
@@ -495,9 +507,9 @@
         border-radius: 8px;
         padding: 15px;
         margin-bottom: 15px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-    
+
     .realtime-header {
         display: flex;
         justify-content: space-between;
@@ -506,7 +518,7 @@
         padding-bottom: 8px;
         border-bottom: 1px solid #e0e0e0;
     }
-    
+
     .realtime-text {
         min-height: 50px;
         max-height: 150px;
@@ -520,23 +532,23 @@
         line-height: 1.5;
         color: #333;
     }
-    
+
     .realtime-text.empty {
         color: #999;
         font-style: italic;
     }
-    
+
     .realtime-text.empty:before {
         content: "Your speech will appear here as you speak...";
     }
-    
+
     .auto-transfer-info {
         margin-top: 8px;
         padding-top: 8px;
         border-top: 1px solid #e0e0e0;
         text-align: center;
     }
-    
+
     .recording-controls button {
         padding: 8px 16px;
         margin-right: 10px;
@@ -545,17 +557,17 @@
         cursor: pointer;
         font-size: 14px;
     }
-    
+
     .btn-success {
         background: #28a745;
         color: white;
     }
-    
+
     .btn-danger {
         background: #dc3545;
         color: white;
     }
-    
+
     .btn-primary {
         background: #007bff;
         color: white;
@@ -569,16 +581,16 @@
         align-items: center;
         gap: 8px;
     }
-    
+
     .btn-primary:hover {
         background: #0056b3;
     }
-    
+
     .btn-primary:disabled {
         background: #ccc;
         cursor: not-allowed;
     }
-    
+
     .generate-button-container {
         flex: 0 0 auto;
         display: flex;
@@ -586,33 +598,33 @@
         align-items: center;
         padding: 20px 0;
     }
-    
+
     .editor-container {
         margin-top: 15px;
     }
-    
+
     #editor2 {
         min-height: 200px;
         border: 1px solid #ddd;
         border-radius: 4px;
     }
-    
+
     .ck-editor__editable {
         min-height: 200px !important;
     }
-    
+
     /* Removed interim text styling as we're now using final text only */
-    
+
     /* SweetAlert custom styling */
     .swal-container {
         z-index: 10000 !important;
     }
-    
+
     .swal-wide {
         width: 500px !important;
         max-width: 90vw !important;
     }
-    
+
     .swal-title {
         font-size: 24px !important;
         font-weight: 600 !important;
@@ -625,9 +637,10 @@
             <!-- User Header with Dropdown -->
             <div class="user-header">
                 <span class="logo">
-                    <img src="{{ asset('assets/images/book-builder-logo.svg') }}" alt="Gratitude Builder Logo" style="vertical-align: middle;">
+                    <img src="{{ asset('assets/images/logo.svg') }}" alt="Gratitude Builder Logo"
+                        style="vertical-align: middle;">
                 </span>
-                
+
                 <div class="user-dropdown" id="userDropdown">
                     <a href="#" class="user-dropdown-toggle" onclick="toggleUserDropdown(event)">
                         <div class="user-avatar">
@@ -636,141 +649,194 @@
                         <span>{{ Auth::user()->name ?? 'User' }}</span>
                         <span class="dropdown-arrow">▼</span>
                     </a>
-                    
+
                     <div class="user-dropdown-menu">
                         <form action="{{ route('logout') }}" method="POST" style="margin: 0;">
                             @csrf
-                            <button type="submit" class="dropdown-item logout-item" style="background: none; border: none; width: 100%; text-align: left; cursor: pointer;">
+                            <button type="submit" class="dropdown-item logout-item"
+                                style="background: none; border: none; width: 100%; text-align: left; cursor: pointer;">
                                 🚪 Logout
                             </button>
                         </form>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Main Content Body -->
             <div class="content-body">
                 <div class="gratitude-section">
-                <h2>Gratitude Story</h2>
-                
-                <!-- Story Container -->
-                <div class="story-container" id="mainStoryContainer">
-                    <div class="story-header">
-                        <h3 class="story-title" id="storyTitle">{{ $gratitudeStory['title'] ?? 'Your Gratitude Story' }}</h3>
-                        <div class="story-badge" id="storyBadge">AI Generated</div>
-                    </div>
-                    <div class="story-content" id="storyContent">
+                    <h2>Gratitude Story</h2>
+
+                    <!-- Story Container -->
+                    <div class="story-container" id="mainStoryContainer">
+                        <div class="story-header">
+                            <h3 class="story-title" id="storyTitle">{{ $gratitudeStory['title'] ?? 'Your Gratitude
+                                Story' }}</h3>
+                            <div class="story-badge" id="storyBadge">AI Generated</div>
+                        </div>
+
+                        {{-- <div class="story-content" id="storyContent">
                         @if(isset($gratitudeStory['content']))
-                            {!! nl2br(e($gratitudeStory['content'])) !!}
+                        {!! nl2br(e($gratitudeStory['content'])) !!}
                         @else
-                            <p>Your generated gratitude story will appear here...</p>
+                        <p>Your generated gratitude story will appear here...</p>
                         @endif
-                    </div>
-                </div>
-                
-                <!-- Sample Stories Section -->
-                <div class="samples-section">
-                    <h4 style="text-align: center; margin-bottom: 20px; color: #333;">Sample Stories for Inspiration</h4>
-                    
-                    <div class="sample-container sample-1 active" data-target="1">
-                        <div>
-                            <h3>My name is Don Williams and I'm Grateful</h3>
-                            <h6>- Sample 1 -</h6>
-                        </div>
-                        <img src="{{asset('assets/images/gratitude-1.png')}}" />
-                        <p>
-                            My gratitude journey started at the Entrepreneur's Organization Global
-                            Leadership Conference in Bangkok, Thailand. A smart lady and now friend by
-                            the name of Gina Mollicone- Long was speaking during a break-out session.
-                            During her lecture, she proposed that humans perform at their highest
-                            level when they express or experience gratitude, and at their lowest level
-                            when they express or experience fear or shame. Little did I know that
-                            thought would completely change my life.
-                        </p>
-                        <p>
-                            When we returned to the United States, I drove myself to our local Home
-                            Depot and bought a small, galvanized pail. I carried the pail everywhere with me. 
-                            That pail became a physical reminder to me to be intentional about my gratitude practice.
-                            The interesting thing about gratitude, is the more you practice gratitude the more grateful you become.
-                        </p>
-                    </div>
-                    
-                    <div class="sample-container sample-2" data-target="2">
-                        <div>
-                            <h3>Ripples to Waves</h3>
-                            <h6>- Sample 2 -</h6>
-                        </div>
-                        <img src="{{asset('assets/images/gratitude-2.png')}}" />
-                        <p>
-                            We moved to London in the summer of 2016. Our new apartment was still
-                            littered with boxes and half-unpacked luggage when my wife discovered a
-                            lump in her breast. My wife was 32—young, healthy, and with no family history of
-                            the disease—when she was diagnosed with breast cancer.
-                        </p>
-                        <p>
-                            For Sue, cancer became her strength. She kept a journal the whole time she
-                            was sick. Every morning, she would make a list of everything she was
-                            grateful for. Every night, she would read through what she wrote. It
-                            inspired her enough to write a book that will be published this year.
-                        </p>
-                        <p class="text-right">Gratefully <br />Raj Goodman Anand</p>
-                    </div>
-                    
-                    <div class="gratitude-change">
-                        <a href="#" data-sample="1" class="active"></a>
-                        <a href="#" data-sample="2"></a>
-                    </div>
-                </div>
-                
-                <!-- Recording Interface -->
-                <div class="recording-interface">
-                    <div class="recording-header">
-                        <div>
-                            <h4 style="margin: 0 0 5px 0;">Record Audio</h4>
-                            <p style="margin: 0; color: #666; font-size: 14px;">Record your voice or type your gratitude prompt below</p>
-                        </div>
-                        <div class="recording-timer">
-                            <div class="recording-indicator" id="recordingIndicator"></div>
-                            <span id="timer2">00:00:00</span>
+                        </div> --}}
+                        <div class="story-content" id="storyContent">
+                            In a small town nestled between rolling hills, there lived a young girl named Lily. Despite
+                            facing hardships, Lily
+                            always found moments of joy in the simple things. One day, a fierce storm swept through the
+                            town, leaving homes
+                            damaged and spirits shaken. Lily's family lost everything they owned in the flood, but
+                            amidst the chaos, Lily found
+                            something unexpected - gratitude.<br>
+                            <br>
+                            As the community rallied together to rebuild, Lily witnessed acts of kindness that filled
+                            her heart with warmth.
+                            Neighbors helped neighbors, strangers offered a helping hand, and hope glimmered in the
+                            darkest of times. Despite
+                            the loss, Lily felt a deep sense of gratitude for the love and support surrounding her.<br>
+                            <br>
+                            With determination and resilience, Lily and her family slowly pieced their life back
+                            together. Every day, Lily found
+                            something new to be thankful for - a roof over their heads, a warm meal shared with loved
+                            ones, and the unwavering
+                            strength of her community.<br>
+                            <br>
+                            One evening, as the sun dipped below the horizon, casting a golden glow over the town, Lily
+                            stood on the porch of
+                            their new home. Tears welled up in her eyes as she thought about the journey they had been
+                            on. She whispered a
+                            heartfelt thank you to the universe for the lessons learned, the friendships forged, and the
+                            unwavering faith that
+                            carried them through.<br>
+                            <br>
+                            In that moment, Lily realized that gratitude was not just about being thankful for what you
+                            have, but about finding
+                            beauty in the midst of chaos, strength in vulnerability, and hope in the face of adversity.
+                            And as she looked out at
+                            the twinkling lights of the town, she knew that no matter what challenges lay ahead,
+                            gratitude would always light
+                            the way.
                         </div>
                     </div>
-                    
-                    <!-- Real-time Speech Display -->
-                  
-                    <div class="mt-2" id="realtimeDisplay style="padding: 8px; background-color: aliceblue; min-height: 16px">
-                        <span id="realTimeTranscription" style="display: inline-block"></span>
-                    </div>
-                    <div class="editor-container">
-                        <div id="editor2">
-                            <?php if (isset($user->gratitude) && $user->gratitude != null) { echo $user->gratitude; } ?>
+
+                    <!-- Sample Stories Section -->
+                    <div class="samples-section">
+                        <h4 style="text-align: center; margin-bottom: 20px; color: #333;">Sample Stories for Inspiration
+                        </h4>
+
+                        <div class="sample-container sample-1 active" data-target="1">
+                            <div>
+                                <h3>My name is Don Williams and I'm Grateful</h3>
+                                <h6>- Sample 1 -</h6>
+                            </div>
+                            <img src="{{asset('assets/images/gratitude-1.png')}}" />
+                            <p>
+                                My gratitude journey started at the Entrepreneur's Organization Global
+                                Leadership Conference in Bangkok, Thailand. A smart lady and now friend by
+                                the name of Gina Mollicone- Long was speaking during a break-out session.
+                                During her lecture, she proposed that humans perform at their highest
+                                level when they express or experience gratitude, and at their lowest level
+                                when they express or experience fear or shame. Little did I know that
+                                thought would completely change my life.
+                            </p>
+                            <p>
+                                When we returned to the United States, I drove myself to our local Home
+                                Depot and bought a small, galvanized pail. I carried the pail everywhere with me.
+                                That pail became a physical reminder to me to be intentional about my gratitude
+                                practice.
+                                The interesting thing about gratitude, is the more you practice gratitude the more
+                                grateful you become.
+                            </p>
+                        </div>
+
+                        <div class="sample-container sample-2" data-target="2">
+                            <div>
+                                <h3>Ripples to Waves</h3>
+                                <h6>- Sample 2 -</h6>
+                            </div>
+                            <img src="{{asset('assets/images/gratitude-2.png')}}" />
+                            <p>
+                                We moved to London in the summer of 2016. Our new apartment was still
+                                littered with boxes and half-unpacked luggage when my wife discovered a
+                                lump in her breast. My wife was 32—young, healthy, and with no family history of
+                                the disease—when she was diagnosed with breast cancer.
+                            </p>
+                            <p>
+                                For Sue, cancer became her strength. She kept a journal the whole time she
+                                was sick. Every morning, she would make a list of everything she was
+                                grateful for. Every night, she would read through what she wrote. It
+                                inspired her enough to write a book that will be published this year.
+                            </p>
+                            <p class="text-right">Gratefully <br />Raj Goodman Anand</p>
+                        </div>
+
+                        <div class="gratitude-change">
+                            <a href="#" data-sample="1" class="active"></a>
+                            <a href="#" data-sample="2"></a>
                         </div>
                     </div>
-                    
-                    <!-- Recording Controls at Bottom -->
-                    <div class="recording-controls">
-                        <button id="startBtn2" data-sr_no="2" data-editor_name="editor2" class="btn-success startBtn">
-                            🎤 Start Recording
+
+                    <!-- Recording Interface -->
+                    <div class="recording-interface">
+                        <div class="recording-header">
+                            <div>
+                                <h4 style="margin: 0 0 5px 0;">Record Audio</h4>
+                                <p style="margin: 0; color: #666; font-size: 14px;">Record your voice or type your
+                                    gratitude prompt below</p>
+                            </div>
+                            <div class="recording-timer">
+                                <div class="recording-indicator" id="recordingIndicator"></div>
+                                <span id="timer2">00:00:00</span>
+                            </div>
+                        </div>
+
+                        <!-- Real-time Speech Display -->
+
+                        <div class="mt-2" id="realtimeDisplay style=" padding: 8px; background-color: aliceblue;
+                            min-height: 16px">
+                            <span id="realTimeTranscription" style="display: inline-block"></span>
+                        </div>
+                        <div class="editor-container">
+                            <div id="editor2">
+                                <?php if (isset($user->gratitude) && $user->gratitude != null) { echo $user->gratitude; } ?>
+                            </div>
+                        </div>
+
+                        <!-- Recording Controls at Bottom -->
+                        <div class="recording-controls">
+                            <button id="startBtn2" data-sr_no="2" data-editor_name="editor2"
+                                class="btn-success startBtn">
+                                🎤 Start Recording
+                            </button>
+                            <button id="stopBtn2" data-sr_no="2" class="btn-danger stopBtn" style="display: none">
+                                ⏹️ Stop Recording
+                            </button>
+                            <button id="resetBtn2" data-sr_no="2" class="btn-danger resetBtn" style="display: none">
+                                🗑️ Reset Text
+                            </button>
+                            <button id="reviewWithAi" type="button" style="background-color: #6dabe4" class="btn-primary">
+                                🤖 Review with AI
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Generate Story Button -->
+                    <div class="generate-button-container">
+                        <button id="generateStoryBtn" class="btn-primary">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span class="btn-text">Generate Your Story</span>
                         </button>
-                        <button id="stopBtn2" data-sr_no="2" class="btn-danger stopBtn" style="display: none">
-                            ⏹️ Stop Recording
-                        </button>
-                        <button id="resetBtn2" data-sr_no="2" class="btn-danger resetBtn" style="display: none">
-                            🗑️ Reset Text
-                        </button>
                     </div>
-                </div>
-                
-                <!-- Generate Story Button -->
-                <div class="generate-button-container">
-                    <button id="generateStoryBtn" class="btn-primary">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span class="btn-text">Generate Your Story</span>
-                    </button>
-                </div>
                 </div>
             </div>
         </div>
@@ -793,6 +859,18 @@
             })
             .then(editor => {
                 window.editor2 = editor;
+                
+                // Auto-save functionality
+                let saveTimeout;
+                editor.model.document.on('change:data', () => {
+                    clearTimeout(saveTimeout);
+                    saveTimeout = setTimeout(() => {
+                        const content = editor.getData();
+                        if (content.trim()) {
+                            saveGratitudeContent(content);
+                        }
+                    }, 3000); // Save after 3 seconds of inactivity
+                });
             })
             .catch(error => {
                 console.error(error);
@@ -800,6 +878,30 @@
 
         // Simple loader
         $('<div id="storyLoader" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"><div>Generating your story...</div></div>').insertAfter('body');
+
+        // Auto-save function
+        window.saveGratitudeContent = function(content) {
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: `{{ route('saveGratitude') }}`,
+                type: "POST",
+                data: {
+                    gratitude: content
+                },
+                cache: false,
+                success: function(dataResult) {
+                    if (dataResult.success) {
+                        // Show subtle save indicator
+                        console.log('Content auto-saved');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Auto-save failed:', error);
+                }
+            });
+        }
 
         // SweetAlert notification system
         window.showNotification = function(message, type = 'info', duration = 5000) {
@@ -1248,5 +1350,117 @@
             $('#generateStoryBtn').click();
         }
     });
+</script>
+<script>
+    // Review With AI button handler
+        $('#reviewWithAi').click(function() {
+            // Get content from CKEditor
+            let editorMessage = window.editor2.getData().trim();
+            editorMessage = editorMessage.replace(/<\/?[^>]+(>|$)/g, '');
+
+            // Word count check
+            const wordCount = editorMessage.split(/\s+/).length;
+            const maxWords = {{ $input_limit }};
+
+            if (editorMessage === "" || wordCount > maxWords) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Warning',
+                    text: `Please select max ${@json($input_limit)} words to AI Wizard .`,
+                    confirmButtonText: 'OK',
+                    timer: 3000,
+                    timerProgressBar: true
+                });
+                return;
+            }
+
+            // Show loading alert
+            Swal.fire({
+                title: 'Processing...',
+                text: 'Please wait while AI reviews your content.',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+
+            // Post to chatgpt-response route
+            axios.post(`{{ route('chatgpt-response') }}`, {
+                    message: editorMessage,
+                    page: "Content",
+                    rule: "review"
+                })
+                .then(response => {
+                    Swal.close();
+                    // Show the modal using Bootstrap 5 syntax
+                    const modal = new bootstrap.Modal(document.getElementById('myAIReviewModal'));
+                    $('#myAIReviewModal .modal-body').html(`
+                        <div class="mb-3">
+                          
+                            <textarea id="modalResponse" class="form-control" rows="15" style="font-family: inherit; line-height: 1.6;">${response.data.response}</textarea>
+                        </div>
+                        <div class="d-flex gap-2 justify-content-end">
+                            <button id="replaceTextBtn" class="btn btn-primary">
+                                <i class="fas fa-check"></i> Replace Content
+                            </button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                <i class="fas fa-times"></i> Cancel
+                            </button>
+                        </div>
+                    `);
+                    modal.show();
+
+                    // Replace button click handler
+                    $('#replaceTextBtn').click(function() {
+                        const newText = $('#modalResponse').val();
+                        replaceSelectedText(newText);
+                        modal.hide();
+                        showNotification('✅ Content has been replaced successfully!', 'success', 3000);
+                    });
+                })
+                .catch(error => {
+                    Swal.close();
+                        let message = 'Something went wrong. Please try again.';
+                        if (error.response && error.response.status === 400 && error.response.data.error) {
+                            message = error.response.data.error;
+                        }
+
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: message,
+                            confirmButtonText: 'OK',
+                            timer: 3000,
+                            timerProgressBar: true
+                        });
+                    });
+        });
+
+        function replaceSelectedText(newText) {
+            if (window.editor2) {
+                const editor = window.editor2;
+                editor.model.change(writer => {
+                    const selection = editor.model.document.selection;
+                    const root = editor.model.document.getRoot();
+                    
+                    // If there's a selection, replace it
+                    if (!selection.isCollapsed) {
+                        const range = selection.getFirstRange();
+                        writer.remove(range);
+                        writer.insertText(newText, range.start);
+                    } else {
+                        // If no selection, replace all content
+                        const fullRange = writer.createRangeIn(root);
+                        writer.remove(fullRange);
+                        writer.insertText(newText, writer.createPositionAt(root, 0));
+                    }
+                });
+                
+                // Focus the editor after replacing content
+                editor.editing.view.focus();
+            } else {
+                console.error('CKEditor instance not initialized.');
+            }
+        }
 </script>
 @endsection
