@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GratitudeController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChatGPTController;
 
 // Guest Routes
 Route::middleware('guest')->group(function () {
@@ -28,8 +29,9 @@ Route::post('/reset', [AuthController::class, 'updatePassword'])->name('resetpas
 Route::middleware('auth')->group(function () {
 Route::get('/gratitude', [GratitudeController::class, 'index'])->name('home');
 Route::post('/gratitude', [GratitudeController::class, 'updateGratitude'])->name('updateGratitude');
+Route::post('/save-gratitude', [GratitudeController::class, 'saveGratitude'])->name('saveGratitude');
 Route::post('/gratitude-story', [GratitudeController::class, 'getGratitudeStory'])->name('getGratitudeStory');
-
+    Route::post('/chat', [ChatGPTController::class, 'ask'])->name('chatgpt-response');
 // Add logout route here
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
