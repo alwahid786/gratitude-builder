@@ -14,11 +14,7 @@ class GratitudeController extends Controller
         $gratitudeStory = $this->getGratitudeStory();
         return view('welcome', compact('gratitudeStory'));
     }
-    public function check()
-    {
-        $gratitudeStory = $this->getGratitudeStory();
-        return view('1welcome', compact('gratitudeStory'));
-    }
+   
 
     public function getGratitudeStory()
     {

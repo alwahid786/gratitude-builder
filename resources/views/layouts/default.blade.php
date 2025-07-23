@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    {{-- @include('layouts.book-layout.navbar')
+     {{-- @include('layouts.book-layout.navbar') --}}
     {{-- @include('layouts.book-layout.progress')--}} 
 
     @yield('content')
