@@ -121,7 +121,7 @@
     <div class="main-container">
         <div class="left-container">
             <div class="logo">
-                <img src="{{ asset('assets/images/book-builder-logo.svg') }}" alt="Book Builder Logo">
+                <img src="{{ asset('assets/images/logo.svg') }}" alt="Book Builder Logo">
             </div>
             <div class="__inner-container">
                 <h2>Welcome Back 👋</h2>
