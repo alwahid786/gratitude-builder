@@ -11,5 +11,15 @@ class GratitudeStory extends Model
         'generated_story',
         'title',
         'session_id',
+        'user_id',
     ];
+
+    // relationship to user
+    public function user()
+    {
+        return $this->belongsTo(User::class)->withDefault([
+            'name' => 'Unknown User',
+            'email' => 'unknown@example.com'
+        ]);
+    }
 }

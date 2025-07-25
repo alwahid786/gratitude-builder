@@ -18,7 +18,7 @@
     .logo {
         font-size: 1.2rem;
         font-weight: 600;
-        color: #007bff;
+        color: #902042;
         margin: 0;
     }
 
@@ -94,7 +94,7 @@
         width: 32px;
         height: 32px;
         border-radius: 50%;
-        background: #007bff;
+        background: #902042;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -371,7 +371,7 @@
     }
 
     .story-badge {
-        background: #007bff;
+        background: #902042;
         color: white;
         padding: 4px 12px;
         border-radius: 20px;
@@ -436,7 +436,7 @@
     }
 
     .gratitude-change a.active {
-        background: #007bff;
+        background: #902042;
     }
 
     .recording-interface {
@@ -503,7 +503,7 @@
     /* Real-time Speech Display */
     .realtime-speech-display {
         background: #fff;
-        border: 2px solid #007bff;
+        border: 2px solid #902042;
         border-radius: 8px;
         padding: 15px;
         margin-bottom: 15px;
@@ -569,7 +569,7 @@
     }
 
     .btn-primary {
-        background: #007bff;
+        background: #902042;
         color: white;
         padding: 12px 24px;
         border: none;
@@ -583,7 +583,7 @@
     }
 
     .btn-primary:hover {
-        background: #0056b3;
+        background: #7a1c36;
     }
 
     .btn-primary:disabled {
@@ -597,6 +597,7 @@
         justify-content: center;
         align-items: center;
         padding: 20px 0;
+        gap: 20px;
     }
 
     .editor-container {
@@ -651,6 +652,14 @@
                     </a>
 
                     <div class="user-dropdown-menu">
+                        @if(Auth::user()->role == 'admin')
+                        <a href="{{ route('admin.dashboard') }}" class="dropdown-item" o>
+                            <i class="fa fa-user"></i> Admin Dashboard
+                        </a>
+                        @endif
+                            {{-- <a href="#" class="dropdown-item" onclick="toggleUserDropdown(event)">
+                                <i class="fa fa-lock"></i> Change Password
+                                </a> --}}
                         <form action="{{ route('logout') }}" method="POST" style="margin: 0;">
                             @csrf
                             <button type="submit" class="dropdown-item logout-item"
@@ -670,113 +679,15 @@
                     <!-- Story Container -->
                     <div class="story-container" id="mainStoryContainer">
                         <div class="story-header">
-                            <h3 class="story-title" id="storyTitle">{{ $gratitudeStory['title'] ?? 'Your Gratitude
-                                Story' }}</h3>
-                            <div class="story-badge" id="storyBadge">AI Generated</div>
+                            <h3 class="story-title" id="storyTitle">{{ $gratitudeStory['title'] }}</h3>
+                            <div class="story-badge" id="storyBadge">Default Story</div>
                         </div>
-
-                        {{-- <div class="story-content" id="storyContent">
-                        @if(isset($gratitudeStory['content']))
-                        {!! nl2br(e($gratitudeStory['content'])) !!}
-                        @else
-                        <p>Your generated gratitude story will appear here...</p>
-                        @endif
-                        </div> --}}
                         <div class="story-content" id="storyContent">
-                            In a small town nestled between rolling hills, there lived a young girl named Lily. Despite
-                            facing hardships, Lily
-                            always found moments of joy in the simple things. One day, a fierce storm swept through the
-                            town, leaving homes
-                            damaged and spirits shaken. Lily's family lost everything they owned in the flood, but
-                            amidst the chaos, Lily found
-                            something unexpected - gratitude.<br>
-                            <br>
-                            As the community rallied together to rebuild, Lily witnessed acts of kindness that filled
-                            her heart with warmth.
-                            Neighbors helped neighbors, strangers offered a helping hand, and hope glimmered in the
-                            darkest of times. Despite
-                            the loss, Lily felt a deep sense of gratitude for the love and support surrounding her.<br>
-                            <br>
-                            With determination and resilience, Lily and her family slowly pieced their life back
-                            together. Every day, Lily found
-                            something new to be thankful for - a roof over their heads, a warm meal shared with loved
-                            ones, and the unwavering
-                            strength of her community.<br>
-                            <br>
-                            One evening, as the sun dipped below the horizon, casting a golden glow over the town, Lily
-                            stood on the porch of
-                            their new home. Tears welled up in her eyes as she thought about the journey they had been
-                            on. She whispered a
-                            heartfelt thank you to the universe for the lessons learned, the friendships forged, and the
-                            unwavering faith that
-                            carried them through.<br>
-                            <br>
-                            In that moment, Lily realized that gratitude was not just about being thankful for what you
-                            have, but about finding
-                            beauty in the midst of chaos, strength in vulnerability, and hope in the face of adversity.
-                            And as she looked out at
-                            the twinkling lights of the town, she knew that no matter what challenges lay ahead,
-                            gratitude would always light
-                            the way.
+                            {!! $gratitudeStory['content'] !!}
                         </div>
                     </div>
 
-                    <!-- Sample Stories Section -->
-                    <div class="samples-section">
-                        <h4 style="text-align: center; margin-bottom: 20px; color: #333;">Sample Stories for Inspiration
-                        </h4>
-
-                        <div class="sample-container sample-1 active" data-target="1">
-                            <div>
-                                <h3>My name is Don Williams and I'm Grateful</h3>
-                                <h6>- Sample 1 -</h6>
-                            </div>
-                            <img src="{{asset('assets/images/gratitude-1.png')}}" />
-                            <p>
-                                My gratitude journey started at the Entrepreneur's Organization Global
-                                Leadership Conference in Bangkok, Thailand. A smart lady and now friend by
-                                the name of Gina Mollicone- Long was speaking during a break-out session.
-                                During her lecture, she proposed that humans perform at their highest
-                                level when they express or experience gratitude, and at their lowest level
-                                when they express or experience fear or shame. Little did I know that
-                                thought would completely change my life.
-                            </p>
-                            <p>
-                                When we returned to the United States, I drove myself to our local Home
-                                Depot and bought a small, galvanized pail. I carried the pail everywhere with me.
-                                That pail became a physical reminder to me to be intentional about my gratitude
-                                practice.
-                                The interesting thing about gratitude, is the more you practice gratitude the more
-                                grateful you become.
-                            </p>
-                        </div>
-
-                        <div class="sample-container sample-2" data-target="2">
-                            <div>
-                                <h3>Ripples to Waves</h3>
-                                <h6>- Sample 2 -</h6>
-                            </div>
-                            <img src="{{asset('assets/images/gratitude-2.png')}}" />
-                            <p>
-                                We moved to London in the summer of 2016. Our new apartment was still
-                                littered with boxes and half-unpacked luggage when my wife discovered a
-                                lump in her breast. My wife was 32—young, healthy, and with no family history of
-                                the disease—when she was diagnosed with breast cancer.
-                            </p>
-                            <p>
-                                For Sue, cancer became her strength. She kept a journal the whole time she
-                                was sick. Every morning, she would make a list of everything she was
-                                grateful for. Every night, she would read through what she wrote. It
-                                inspired her enough to write a book that will be published this year.
-                            </p>
-                            <p class="text-right">Gratefully <br />Raj Goodman Anand</p>
-                        </div>
-
-                        <div class="gratitude-change">
-                            <a href="#" data-sample="1" class="active"></a>
-                            <a href="#" data-sample="2"></a>
-                        </div>
-                    </div>
+               
 
                     <!-- Recording Interface -->
                     <div class="recording-interface">
@@ -800,7 +711,7 @@
                         </div>
                         <div class="editor-container">
                             <div id="editor2">
-                                <?php if (isset($user->gratitude) && $user->gratitude != null) { echo $user->gratitude; } ?>
+                               
                             </div>
                         </div>
 
@@ -836,7 +747,22 @@
                             </svg>
                             <span class="btn-text">Generate Your Story</span>
                         </button>
-                    </div>
+                        @if(Auth::user()->role == 'admin')
+
+                            <a href="{{route('admin.stories.export-pdf')}}" class="btn-primary">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span class="btn-text">Generate Your PDF</span>
+                        </a>
+                    @endif
+                </div>
                 </div>
             </div>
         </div>
@@ -859,54 +785,14 @@
             })
             .then(editor => {
                 window.editor2 = editor;
-                
-                // Auto-save functionality
-                let saveTimeout;
-                editor.model.document.on('change:data', () => {
-                    clearTimeout(saveTimeout);
-                    saveTimeout = setTimeout(() => {
-                        const content = editor.getData();
-                        if (content.trim()) {
-                            saveGratitudeContent(content);
-                        }
-                    }, 3000); // Save after 3 seconds of inactivity
-                });
             })
             .catch(error => {
                 console.error(error);
             });
-
-        // Simple loader
-        $('<div id="storyLoader" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"><div>Generating your story...</div></div>').insertAfter('body');
-
-        // Auto-save function
-        window.saveGratitudeContent = function(content) {
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                url: `{{ route('saveGratitude') }}`,
-                type: "POST",
-                data: {
-                    gratitude: content
-                },
-                cache: false,
-                success: function(dataResult) {
-                    if (dataResult.success) {
-                        // Show subtle save indicator
-                        console.log('Content auto-saved');
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error('Auto-save failed:', error);
-                }
-            });
-        }
-
         // SweetAlert notification system
         window.showNotification = function(message, type = 'info', duration = 5000) {
             let icon = 'info';
-            let confirmButtonColor = '#007bff';
+            let confirmButtonColor = '#902042';
             
             switch(type) {
                 case 'success':
@@ -924,7 +810,7 @@
                 case 'info':
                 default:
                     icon = 'info';
-                    confirmButtonColor = '#17a2b8';
+                    confirmButtonColor = '#902042';
                     break;
             }
             
@@ -1017,7 +903,6 @@
                                 <div style="text-align: center; padding: 20px;">
                                     <h3 style="color: #28a745; margin-bottom: 15px;">Your gratitude story has been created!</h3>
                                     <p style="margin-bottom: 15px;">✅ Story generated successfully</p>
-                                    <p style="margin-bottom: 15px;">💾 Data saved to database</p>
                                     <p style="color: #666; font-size: 14px;">Your personalized gratitude story is now ready and has been securely stored.</p>
                                 </div>
                             `,
@@ -1392,12 +1277,12 @@
                 })
                 .then(response => {
                     Swal.close();
+                    console.log(response.data.response)
                     // Show the modal using Bootstrap 5 syntax
                     const modal = new bootstrap.Modal(document.getElementById('myAIReviewModal'));
                     $('#myAIReviewModal .modal-body').html(`
                         <div class="mb-3">
-                          
-                            <textarea id="modalResponse" class="form-control" rows="15" style="font-family: inherit; line-height: 1.6;">${response.data.response}</textarea>
+                            <div id="modalResponse" class="form-control" style="min-height: 300px; max-height: 400px; overflow-y: auto; padding: 15px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; font-family: inherit; line-height: 1.6;">${response.data.response}</div>
                         </div>
                         <div class="d-flex gap-2 justify-content-end">
                             <button id="replaceTextBtn" class="btn btn-primary">
@@ -1412,7 +1297,7 @@
 
                     // Replace button click handler
                     $('#replaceTextBtn').click(function() {
-                        const newText = $('#modalResponse').val();
+                        const newText = $('#modalResponse').html();
                         replaceSelectedText(newText);
                         modal.hide();
                         showNotification('✅ Content has been replaced successfully!', 'success', 3000);
@@ -1436,25 +1321,26 @@
                     });
         });
 
-        function replaceSelectedText(newText) {
+        function replaceSelectedText(newHtml) {
             if (window.editor2) {
                 const editor = window.editor2;
-                editor.model.change(writer => {
-                    const selection = editor.model.document.selection;
-                    const root = editor.model.document.getRoot();
-                    
-                    // If there's a selection, replace it
-                    if (!selection.isCollapsed) {
+                const selection = editor.model.document.selection;
+                
+                // If there's a selection, replace only the selected content
+                if (!selection.isCollapsed) {
+                    editor.model.change(writer => {
                         const range = selection.getFirstRange();
                         writer.remove(range);
-                        writer.insertText(newText, range.start);
-                    } else {
-                        // If no selection, replace all content
-                        const fullRange = writer.createRangeIn(root);
-                        writer.remove(fullRange);
-                        writer.insertText(newText, writer.createPositionAt(root, 0));
-                    }
-                });
+                        
+                        // Insert HTML content at the current position
+                        const viewFragment = editor.data.processor.toView(newHtml);
+                        const modelFragment = editor.data.toModel(viewFragment);
+                        writer.insert(modelFragment, range.start);
+                    });
+                } else {
+                    // If no selection, replace all content with the new HTML
+                    editor.setData(newHtml);
+                }
                 
                 // Focus the editor after replacing content
                 editor.editing.view.focus();
