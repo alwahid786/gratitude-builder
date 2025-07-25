@@ -3,69 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
 use App\Models\GratitudeStory;
+use App\Models\AdminSetting; // new code
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 class GratitudeController extends Controller
 {
     public function index()
     {
-        $gratitudeStory = $this->getGratitudeStory();
-        $user = auth()->user();
+        $user = Auth::user();
         $input_limit = 500; // Set a reasonable word limit for AI review
         
-        return view('welcome', compact('gratitudeStory', 'user', 'input_limit'));
+        // Get default story settings from admin
+        $gratitudeStory = [
+            'title' => AdminSetting::getValue('default_story_title', 'Your Gratitude Story'),
+            'content' => AdminSetting::getValue('default_story_content', 'Welcome to your gratitude journey. Your personalized story will appear here once you create it.')
+        ];
+        
+        return view('welcome', compact('user', 'input_limit', 'gratitudeStory'));
     }
    
-
-    public function getGratitudeStory()
-    {
-        $apiKey = env('OPENAI_API_KEY');
-        
-        if (!$apiKey || $apiKey === 'your_openai_api_key_here') {
-            return [
-                'title' => 'Sample Gratitude Story',
-                'content' => 'This is a sample gratitude story. Please configure your OpenAI API key in the .env file to generate dynamic stories about gratitude and thankfulness.'
-            ];
-        }
-
-        try {
-            $response = Http::withHeaders([
-                'Authorization' => 'Bearer ' . $apiKey,
-                'Content-Type' => 'application/json',
-            ])->post('https://api.openai.com/v1/chat/completions', [
-                'model' => 'gpt-3.5-turbo',
-                'messages' => [
-                    [
-                        'role' => 'system',
-                        'content' => 'You are a storyteller who creates inspiring and heartwarming gratitude stories. Write exactly 300 words.'
-                    ],
-                    [
-                        'role' => 'user',
-                        'content' => 'Write a beautiful and inspiring 300-word story about gratitude. The story should be personal, touching, and demonstrate the power of being thankful. Include specific details and emotions that make the story relatable and meaningful.'
-                    ]
-                ],
-                'max_tokens' => 400,
-                'temperature' => 0.7,
-            ]);
-
-            if ($response->successful()) {
-                $data = $response->json();
-                return [
-                    'title' => 'A Story of Gratitude',
-                    'content' => $data['choices'][0]['message']['content'] ?? 'Unable to generate story.'
-                ];
-            }
-        } catch (\Exception $e) {
-            Log::error('Failed to generate gratitude story: ' . $e->getMessage());
-        }
-
-        return [
-            'title' => 'Sample Gratitude Story',
-            'content' => 'This is a sample gratitude story. Please check your OpenAI API configuration to generate dynamic stories about gratitude and thankfulness.'
-        ];
-    }
 
     public function updateGratitude(Request $request)
     {
@@ -75,13 +35,10 @@ class GratitudeController extends Controller
 
         $userPrompt = $request->input('gratitude');
         $sessionId = session()->getId();
-        $user = auth()->user();
+        $user = Auth::user();
 
         try {
-            // Save user's gratitude content
-            if ($user) {
-                $user->update(['gratitude' => $userPrompt]);
-            }
+       
 
             $generatedStory = $this->generateStoryFromPrompt($userPrompt);
             
@@ -90,6 +47,7 @@ class GratitudeController extends Controller
                 'generated_story' => $generatedStory['content'],
                 'title' => $generatedStory['title'],
                 'session_id' => $sessionId,
+                'user_id' => $user ? $user->id : null,
             ]);
 
             return response()->json([
@@ -109,7 +67,8 @@ class GratitudeController extends Controller
 
     private function generateStoryFromPrompt($userPrompt)
     {
-        $apiKey = env('OPENAI_API_KEY');
+        // new code - Use database settings
+        $apiKey = AdminSetting::getValue('openai_api_key', env('OPENAI_API_KEY'));
         
         if (!$apiKey || $apiKey === 'your_openai_api_key_here') {
             return [
@@ -118,23 +77,33 @@ class GratitudeController extends Controller
             ];
         }
 
+        $model = AdminSetting::getValue('openai_model', 'gpt-3.5-turbo');
+        $maxTokens = (int) AdminSetting::getValue('max_tokens', 400);
+        $temperature = (float) AdminSetting::getValue('temperature', 0.7);
+        $systemPrompt = AdminSetting::getValue('story_generation_prompt', 
+            'You are a storyteller who creates inspiring and heartwarming gratitude stories. Write exactly 300 words based on the user\'s prompt.'
+        );
+        $completionPrompt = AdminSetting::getValue('completion_prompt', 
+            'Based on this prompt about gratitude: "{prompt}", write a beautiful and inspiring 300-word story about gratitude. Make it personal, touching, and demonstrate the power of being thankful.'
+        );
+
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $apiKey,
             'Content-Type' => 'application/json',
         ])->post('https://api.openai.com/v1/chat/completions', [
-            'model' => 'gpt-3.5-turbo',
+            'model' => $model,
             'messages' => [
                 [
                     'role' => 'system',
-                    'content' => 'You are a storyteller who creates inspiring and heartwarming gratitude stories. Write exactly 300 words based on the user\'s prompt.'
+                    'content' => $systemPrompt
                 ],
                 [
                     'role' => 'user',
-                    'content' => 'Based on this prompt about gratitude: "' . $userPrompt . '", write a beautiful and inspiring 300-word story about gratitude. Make it personal, touching, and demonstrate the power of being thankful.'
+                    'content' => str_replace('{prompt}', $userPrompt, $completionPrompt)
                 ]
             ],
-            'max_tokens' => 400,
-            'temperature' => 0.7,
+            'max_tokens' => $maxTokens,
+            'temperature' => $temperature,
         ]);
 
         if ($response->successful()) {
@@ -146,35 +115,5 @@ class GratitudeController extends Controller
         }
 
         throw new \Exception('Failed to generate story from OpenAI API');
-    }
-
-    public function saveGratitude(Request $request)
-    {
-        $request->validate([
-            'gratitude' => 'required|string|max:5000',
-        ]);
-
-        $user = auth()->user();
-        if (!$user) {
-            return response()->json([
-                'success' => false,
-                'message' => 'User not authenticated.'
-            ], 401);
-        }
-
-        try {
-            $user->update(['gratitude' => $request->input('gratitude')]);
-            
-            return response()->json([
-                'success' => true,
-                'message' => 'Gratitude content saved successfully!'
-            ]);
-        } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Failed to save gratitude content.',
-                'error' => $e->getMessage()
-            ], 500);
-        }
     }
 }

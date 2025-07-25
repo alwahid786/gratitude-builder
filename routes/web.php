@@ -1,11 +1,13 @@
 <?php
 
 
+use App\Http\Middleware\Admin;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GratitudeController;
-use App\Http\Controllers\BookController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ChatGPTController;
+use App\Http\Controllers\GratitudeController;
 
 // Guest Routes
 Route::middleware('guest')->group(function () {
@@ -29,9 +31,23 @@ Route::post('/reset', [AuthController::class, 'updatePassword'])->name('resetpas
 Route::middleware('auth')->group(function () {
 Route::get('/gratitude', [GratitudeController::class, 'index'])->name('home');
 Route::post('/gratitude', [GratitudeController::class, 'updateGratitude'])->name('updateGratitude');
-Route::post('/save-gratitude', [GratitudeController::class, 'saveGratitude'])->name('saveGratitude');
 Route::post('/gratitude-story', [GratitudeController::class, 'getGratitudeStory'])->name('getGratitudeStory');
     Route::post('/chat', [ChatGPTController::class, 'ask'])->name('chatgpt-response');
 // Add logout route here
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+});
+
+
+// new code - Admin Routes
+Route::middleware(['auth', Admin::class])->prefix('admin')->name('admin.')->group(function(){
+    Route::controller(AdminController::class)->group(function(){
+        Route::get('/dashboard', 'dashboard')->name('dashboard');
+        Route::get('/settings', 'settings')->name('settings');
+        Route::put('/settings', 'updateSettings')->name('settings.update');
+        Route::get('/users', 'users')->name('users');
+        Route::get('/users/{user}/stories', 'userStories')->name('users.stories');
+        Route::get('/stories', 'stories')->name('stories');
+        Route::delete('/stories/{story}', 'deleteStory')->name('stories.delete');
+        Route::get('/stories/export-pdf', 'exportStoriesPdf')->name('stories.export-pdf');
+    });
 });

@@ -46,4 +46,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // relationship to gratitude stories
+    public function gratitudeStories()
+    {
+        return $this->hasMany(GratitudeStory::class);
+    }
 }
