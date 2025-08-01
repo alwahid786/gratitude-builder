@@ -29,6 +29,12 @@ Route::post('/reset', [AuthController::class, 'updatePassword'])->name('resetpas
 
 // Authenticated Routes
 Route::middleware('auth')->group(function () {
+// Release Agreement Routes
+Route::get('/release', function () {
+    return view('Release');
+})->name('release');
+Route::post('/release', [AuthController::class, 'storeRelease'])->name('release.store');
+
 Route::get('/gratitude', [GratitudeController::class, 'index'])->name('home');
 Route::post('/gratitude', [GratitudeController::class, 'updateGratitude'])->name('updateGratitude');
 Route::post('/gratitude-story', [GratitudeController::class, 'getGratitudeStory'])->name('getGratitudeStory');
