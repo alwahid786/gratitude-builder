@@ -197,12 +197,12 @@ $imageData = file_exists($imagePath) ? base64_encode(file_get_contents($imagePat
                 </div>
             </div>
 
-            @if($story->user_prompt)
+            {{-- @if($story->user_prompt)
             <div class="story-prompt">
                 <div class="story-prompt-label">User Prompt</div>
                 <div class="story-prompt-text">{{ $story->user_prompt }}</div>
             </div>
-            @endif
+            @endif --}}
 
             <div class="story-content">
                 {!! nl2br(e($story->generated_story)) !!}
@@ -228,12 +228,12 @@ $imageData = file_exists($imagePath) ? base64_encode(file_get_contents($imagePat
                 </div>
             </div>
 
-            @if($story->user_prompt)
+            {{-- @if($story->user_prompt)
             <div class="story-prompt">
                 <div class="story-prompt-label">User Prompt</div>
                 <div class="story-prompt-text">{{ $story->user_prompt }}</div>
             </div>
-            @endif
+            @endif --}}
 
             <div class="story-content">
                 {!! nl2br(e($story->generated_story)) !!}

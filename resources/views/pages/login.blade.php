@@ -75,7 +75,7 @@
     }
 
     .submit-btn {
-        background-color: #005EB5;
+        background-color: #830F35;
         color: white;
         cursor: pointer;
         font-weight: 500;
@@ -157,7 +157,7 @@
 
                     <div class="d-flex justify-content-end mb-3">
                         <a href="{{ route('forgetpassword') }}" class="text-decoration-none"
-                            style="color: #005EB5;">Forgot Password?</a>
+                            style="color: #830F35;">Forgot Password?</a>
                     </div>
 
                     <div class="d-grid">
@@ -168,7 +168,7 @@
                 <p class="text-center mt-3">
                     Don’t have an account?
                     <a href="{{ route('signup') }}" class="text-decoration-none"
-                        style="color: #005EB5; font-weight: 600;">Sign up</a>
+                        style="color: #830F35; font-weight: 600;">Sign up</a>
                 </p>
             </div>
         </div>

@@ -57,7 +57,7 @@
                 }
 
                 .submit-btn {
-                    background-color: #005EB5;
+                    background-color: #830F35;
                     color: white;
                     cursor: pointer;
                     font-weight: 500;

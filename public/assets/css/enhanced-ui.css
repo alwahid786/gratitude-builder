@@ -1152,13 +1152,13 @@ p {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
+  background: #830F35;
   border-radius: var(--border-radius-full);
   transition: background var(--transition-fast);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-dark);
+  background: #6B0D2B;
 }
 
 /* Cursor Effects */
