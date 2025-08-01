@@ -14,7 +14,7 @@ $percentage = bookProgress()['percentage'];
             font-family: Poppins;
             font-weight: 500;
             font-size: 18px;
-            color: #005EB5;
+            color: #830F35;
         }
 
         h6 {
@@ -31,7 +31,7 @@ $percentage = bookProgress()['percentage'];
     }
 
     .progress-bar {
-        background-color: #005EB5;
+        background-color: #830F35;
         border-radius: 20px;
     }
 }
