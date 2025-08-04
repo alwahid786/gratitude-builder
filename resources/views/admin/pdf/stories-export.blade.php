@@ -352,7 +352,7 @@
         .toc-dots {
             flex: 1;
             border-bottom: 1px dotted #000;
-            border-width:400px;
+            /* border-width:400px; */
             margin: 0 10px 3px 10px;
             height: 1px;
         }
