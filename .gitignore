@@ -9,6 +9,7 @@
 /.idea
 /.nova
 /.phpunit.cache
+/testbook
 /.vscode
 /.zed
 /auth.json
@@ -22,3 +23,6 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+./storage/debugbar
+/public/debugbar
+/testbook.pdf

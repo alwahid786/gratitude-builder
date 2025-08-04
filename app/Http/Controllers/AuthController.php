@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Services\RecaptchaService;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
@@ -84,7 +85,12 @@ class AuthController extends Controller
             return redirect('/');
         }
 
-        return redirect('/');      
+        // Check if user has already signed release agreement
+        if (Auth::user()->release_signed) {
+            return redirect('/gratitude');
+        }
+        
+        return redirect('/release');
     }
 
     // Forget Password Function
@@ -182,6 +188,56 @@ class AuthController extends Controller
             DB::rollBack();
             toastr()->error($e->getMessage());
             return redirect()->back();
+        }
+    }
+
+    // Store Release Agreement
+    public function storeRelease(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'signature' => 'required',
+            'g-recaptcha-response' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false, 
+                'message' => 'Please complete all required fields.'
+            ]);
+        }
+
+        // Verify reCAPTCHA
+        $recaptchaResponse = $request->input('g-recaptcha-response');
+        $clientIp = $request->ip();
+        
+        if (!RecaptchaService::verify($recaptchaResponse, $clientIp)) {
+            return response()->json([
+                'success' => false,
+                'message' => 'reCAPTCHA verification failed. Please try again.'
+            ]);
+        }
+
+        DB::beginTransaction();
+        try {
+            // Update user record to mark release as signed
+            $updated = User::where('id', Auth::id())->update([
+                'release_signed' => true,
+                'release_signature' => $request->signature,
+                'release_signed_at' => now(),
+            ]);
+
+            if (!$updated) {
+                throw new Exception('Failed to save release agreement.');
+            }
+
+            DB::commit();
+            return response()->json(['success' => true]);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
         }
     }
 

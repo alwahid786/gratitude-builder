@@ -96,6 +96,14 @@ class AdminController extends Controller
 
         return Pdf::loadView('admin.pdf.stories-export', $data)
             ->setPaper('A4', 'portrait')
-            ->download('gratitude-stories-' . now()->format('Y-m-d-H-i-s') . '.pdf');
+            ->setOptions([
+                'isHtml5ParserEnabled' => true,
+                'isPhpEnabled' => true,
+                'defaultFont' => 'Georgia',
+                'dpi' => 150,
+                'defaultPaperSize' => 'A4',
+                'chroot' => public_path(),
+            ])
+            ->download('gratitude-stories-from-our-hearts-' . now()->format('Y-m-d') . '.pdf');
     }
 }
