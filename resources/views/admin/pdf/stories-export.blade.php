@@ -47,7 +47,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Times New Roman', serif;
-            font-size: 25px;
+            font-size: 35px;
             line-height: 1.5;
             color: #000;
             background: white;
@@ -68,7 +68,7 @@
 
         .contribute-title,
         .cover-title {
-            font-size: 48px;
+            font-size: 58px;
             font-weight: normal;
             color: #000;
             margin-bottom: 20px;
@@ -78,7 +78,7 @@
         }
 
         .cover-subtitle {
-            font-size: 30px;
+            font-size: 40px;
             color: #000;
             margin-bottom: 20px;
             font-weight: normal;
@@ -87,7 +87,7 @@
         }
 
         .cover-by {
-            font-size: 26px;
+            font-size: 46px;;
             color: #000;
             margin-bottom: 40px;
             font-weight: normal;
@@ -96,7 +96,7 @@
         }
 
         .cover-author {
-            font-size: 28px;
+            font-size: 38px;
             color: #000;
             margin-bottom: 60px;
             font-weight: normal;
@@ -123,7 +123,7 @@
         }
 
         .cover-artwork-credit {
-            font-size: 25px;
+            font-size: 35px;
             color: #000;
             margin-top: 40px;
             margin-bottom: 20px;
@@ -132,7 +132,7 @@
         }
 
         .cover-copyright {
-            font-size: 23px;
+            font-size: 33px;
             color: #000;
             font-family: 'Times New Roman', serif;
         }
@@ -145,7 +145,7 @@
         }
 
         .contributors-title {
-            font-size: 48px;
+            font-size: 58px;
             color: #000;
             font-weight: 800;
             margin: 60px 0;
@@ -165,7 +165,7 @@
         }
 
         .contributor-name {
-            font-size: 25px;
+            font-size: 35px;
             color: #000;
             margin-bottom: 20px;
             font-family: 'Times New Roman', serif;
@@ -180,7 +180,7 @@
         }
 
         .copyright-info {
-            font-size: 25px;
+            font-size: 35px;
             line-height: 1.4;
             color: #000;
             margin-bottom: 40px;
@@ -188,7 +188,7 @@
         }
 
         .contact-info {
-            font-size: 25px;
+            font-size: 35px;
             line-height: 1.8;
             color: #000;
             margin-bottom: 60px;
@@ -196,7 +196,7 @@
         }
 
         .copyright-text {
-            font-size: 23px;
+            font-size: 33px;
             line-height: 1.6;
             color: #000;
             text-align: justify;
@@ -221,7 +221,7 @@
         }
 
         .testimonials-title {
-            font-size: 36px;
+            font-size: 46px;;
             color: #000;
             margin-bottom: 80px;
             font-weight: normal;
@@ -231,7 +231,7 @@
         .testimonial {
             max-width: 70%;
             margin: 0 auto;
-            font-size: 28px;
+            font-size: 38px;
             line-height: 1.8;
             color: #000;
             font-family: 'Times New Roman', serif;
@@ -250,13 +250,13 @@
             text-align: center;
             font-weight: normal;
             margin: 40px 0 15px 0;
-            font-size: 26px;
+            font-size: 46px;;
             font-family: 'Times New Roman', serif;
         }
 
         .testimonial-title {
             text-align: center;
-            font-size: 22px;
+            font-size: 32px;;
             color: #000;
             font-family: 'Times New Roman', serif;
             font-style: italic;
@@ -281,7 +281,7 @@
         }
 
         .dedication-title {
-            font-size: 48px;
+            font-size: 58px;
             font-weight: normal;
             color: #000;
             margin-bottom: 20px;
@@ -293,7 +293,7 @@
         .dedication-content {
             max-width: 70%;
             margin: 0 auto;
-            font-size: 28px;
+            font-size: 38px;
             line-height: 1.8;
             color: #000;
             font-family: 'Times New Roman', serif;
@@ -312,13 +312,13 @@
             text-align: center;
             font-weight: normal;
             margin-bottom: 10px;
-            font-size: 26px;
+            font-size: 46px;;
             font-family: 'Times New Roman', serif;
         }
 
         .dedication-title {
             text-align: center;
-            font-size: 23px;
+            font-size: 33px;
             color: #000;
             font-family: 'Times New Roman', serif;
         }
@@ -334,7 +334,7 @@
             justify-content: space-between;
             align-items: baseline;
             margin-bottom: 8px;
-            font-size: 25px;
+            font-size: 35px;
             color: #000;
             font-family: 'Times New Roman', serif;
         }
@@ -361,7 +361,7 @@
         }
 
         .story-title {
-            font-size: 28px;
+            font-size: 38px;
             color: #000;
             margin-bottom: 30px;
             text-align: center;
@@ -370,7 +370,7 @@
         }
 
         .story-content {
-            font-size: 25px;
+            font-size: 35px;
             line-height: 1.7;
             color: #000;
             text-align: justify;
@@ -385,7 +385,7 @@
 
         .story-author {
             text-align: center;
-            font-size: 25px;
+            font-size: 35px;
             color: #000;
             font-style: italic;
             font-family: 'Times New Roman', serif;
@@ -398,7 +398,7 @@
         }
 
         .conclusion-title {
-            font-size: 22px;
+            font-size: 32px;;
             color: #000;
             margin-bottom: 50px;
             text-align: center;
@@ -407,7 +407,7 @@
         }
 
         .conclusion-content {
-            font-size: 25px;
+            font-size: 35px;
             line-height: 1.6;
             color: #000;
             text-align: justify;
@@ -422,7 +422,7 @@
         }
 
         .about-author-title {
-            font-size: 28px;
+            font-size: 38px;
             color: #000;
             margin-bottom: 40px;
             font-weight: normal;
@@ -453,7 +453,7 @@
         }
 
         .author-bio p {
-            font-size: 16px;
+            font-size: 26px;;
             line-height: 1.6;
             color: #000;
             margin-bottom: 20px;
@@ -469,7 +469,7 @@
         }
 
         .contact-title {
-            font-size: 28px;
+            font-size: 38px;
             color: #000;
             margin-bottom: 60px;
             font-weight: normal;
@@ -477,41 +477,41 @@
         }
 
         .contact-content p {
-            font-size: 18px;
+            font-size: 28px;;
             color: #000;
             margin-bottom: 30px;
             font-family: 'Times New Roman', serif;
         }
 
         .contact-tagline {
-            font-size: 20px;
+            font-size: 30px;;
             margin-bottom: 40px;
         }
 
         .contact-location {
-            font-size: 20px;
+            font-size: 30px;;
             margin-bottom: 40px;
         }
 
         .contact-label {
-            font-size: 18px;
+            font-size: 28px;;
             margin-bottom: 20px;
         }
 
         .contact-email {
-            font-size: 16px;
+            font-size: 26px;;
             text-decoration: underline;
             color: #666;
             margin-bottom: 20px;
         }
 
         .contact-phone {
-            font-size: 18px;
+            font-size: 28px;;
             margin-bottom: 40px;
         }
 
         .contact-social {
-            font-size: 16px;
+            font-size: 26px;;
             margin-bottom: 30px;
         }
 
@@ -544,7 +544,7 @@
         }
 
         .work-section h2 {
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             font-weight: 600;
             margin-bottom: 10px;
         }
@@ -588,7 +588,7 @@
         }
 
         .section-title {
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             font-weight: 600;
             margin-bottom: 10px;
         }
