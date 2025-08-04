@@ -55,12 +55,13 @@
 
         /* Page 1: Cover */
         .cover-page {
+            padding-top: 170px;
             width: 100%;
             background: white;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             text-align: center;
             /* page-break-after: always; */
 
@@ -87,7 +88,8 @@
         }
 
         .cover-by {
-            font-size: 46px;;
+            font-size: 46px;
+            ;
             color: #000;
             margin-bottom: 40px;
             font-weight: normal;
@@ -210,18 +212,19 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             text-align: center;
             background: white;
             height: 100vh;
             width: 100vw;
-            position: relative;
+            /* position: relative; */
             box-sizing: border-box;
         }
 
         .testimonials-title {
-            font-size: 46px;;
+            font-size: 46px;
+            ;
             color: #000;
             margin-bottom: 80px;
             font-weight: normal;
@@ -229,15 +232,15 @@
         }
 
         .testimonial {
-            max-width: 70%;
-            margin: 0 auto;
+            /* max-width: 70%;
+            margin: 0 auto; */
             font-size: 38px;
             line-height: 1.8;
             color: #000;
             font-family: 'Times New Roman', serif;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
         }
 
@@ -250,13 +253,15 @@
             text-align: center;
             font-weight: normal;
             margin: 40px 0 15px 0;
-            font-size: 46px;;
+            font-size: 46px;
+            ;
             font-family: 'Times New Roman', serif;
         }
 
         .testimonial-title {
             text-align: center;
-            font-size: 32px;;
+            font-size: 32px;
+            ;
             color: #000;
             font-family: 'Times New Roman', serif;
             font-style: italic;
@@ -312,7 +317,8 @@
             text-align: center;
             font-weight: normal;
             margin-bottom: 10px;
-            font-size: 46px;;
+            font-size: 46px;
+            ;
             font-family: 'Times New Roman', serif;
         }
 
@@ -346,6 +352,7 @@
         .toc-dots {
             flex: 1;
             border-bottom: 1px dotted #000;
+            border-width:400px;
             margin: 0 10px 3px 10px;
             height: 1px;
         }
@@ -370,6 +377,7 @@
         }
 
         .story-content {
+            padding: 20px;
             font-size: 35px;
             line-height: 1.7;
             color: #000;
@@ -398,7 +406,7 @@
         }
 
         .conclusion-title {
-            font-size: 32px;;
+            font-size: 32px;
             color: #000;
             margin-bottom: 50px;
             text-align: center;
@@ -453,7 +461,7 @@
         }
 
         .author-bio p {
-            font-size: 26px;;
+            font-size: 26px;
             line-height: 1.6;
             color: #000;
             margin-bottom: 20px;
@@ -477,41 +485,48 @@
         }
 
         .contact-content p {
-            font-size: 28px;;
+            font-size: 28px;
+            ;
             color: #000;
             margin-bottom: 30px;
             font-family: 'Times New Roman', serif;
         }
 
         .contact-tagline {
-            font-size: 30px;;
+            font-size: 30px;
+            ;
             margin-bottom: 40px;
         }
 
         .contact-location {
-            font-size: 30px;;
+            font-size: 30px;
+            ;
             margin-bottom: 40px;
         }
 
         .contact-label {
-            font-size: 28px;;
+            font-size: 28px;
+            ;
             margin-bottom: 20px;
         }
 
         .contact-email {
-            font-size: 26px;;
+            font-size: 26px;
+            ;
             text-decoration: underline;
             color: #666;
             margin-bottom: 20px;
         }
 
         .contact-phone {
-            font-size: 28px;;
+            font-size: 28px;
+            ;
             margin-bottom: 40px;
         }
 
         .contact-social {
-            font-size: 26px;;
+            font-size: 26px;
+            ;
             margin-bottom: 30px;
         }
 
@@ -600,16 +615,6 @@
             margin: 0 auto 20px auto;
         }
 
-        /*
-        .author-image img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border: 5px solid #0033cc;
-            transform: rotate(45deg);
-            margin: 20px 0;
-        } */
-
         .author-image img {
             border-radius: 10px;
         }
@@ -618,6 +623,50 @@
             margin: 15px 0;
             line-height: 1.6;
             font-size: 1rem;
+        }
+
+        .pdf-whatwesay {
+            page-break-before: always;
+            padding: 20px 80px;
+            background-color: white;
+            text-align: left;
+            font-family: 'Times New Roman', serif;
+            font-size: 35px;
+            line-height: 1.6;
+            color: #000;
+        }
+
+        .section-title {
+            font-size: 37pt;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        /* .quote-block {
+            margin-bottom: 20px;
+        } */
+
+        .quote-line {
+            margin-bottom: 16px;
+            font-size:45px;
+        }
+
+        .quote-line:first-child {
+            margin-top: 10px;
+        }
+
+        .quote-signature {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 30pt;
+            color: #000;
+        }
+
+        .quote-credentials {
+            text-align: center;
+            font-size: 23.5pt;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -695,17 +744,23 @@
     </div>
 
     <!-- Page 5: Testimonials -->
-    <div class="testimonials-page">
-        <h2 class="testimonials-title">What Others are Saying...</h2>
+    <div class="pdf-whatwesay">
+        <h1 class="section-title">What Others are Saying...</h1>
 
-        <div class="testimonial">
-            <div class="testimonial-text">"Don Williams is living proof that actively</div>
-            <div class="testimonial-text">practicing gratitude can change your life.</div>
-            <div class="testimonial-text">Gratitude shifts you into a higher state and is the</div>
-            <div class="testimonial-text">secret ingredient to living a more powerful life.</div>
-            <div class="testimonial-text">Buy two copies of this book and give one to a friend."</div>
-            <div class="testimonial-author">Gina Mollicone-Long</div>
-            <div class="testimonial-title">International Best-Selling Author</div>
+        <div class="quote-block">
+            <p class="quote-line">“Don Williams is living proof that actively practicing gratitude can change your life.
+            </p>
+            <p class="quote-line">Don has done an exceptional job of illustrating that the key to gratitude is
+                disciplined practice and eloquently presents numerous stories that reinforce this message.</p>
+            <p class="quote-line">Gratitude shifts you into a higher state and is the secret ingredient to living a more
+                powerful life.</p>
+            <p class="quote-line">Buy two copies of this book and give one to a friend.”</p>
+        </div>
+
+        <div class="quote-signature">Gina Mollicone-Long</div>
+        <div class="quote-credentials">
+            International Best-Selling Author, Creator of Greatness U
+            and the ACME Coaching Framework
         </div>
     </div>
     <!-- Page 5: dedation -->
@@ -718,10 +773,22 @@
             <div class="dedication-title">This book is for you</div>
         </div>
     </div>
+    <!-- Page 5: dedication -->
+    <div class="dedication-page">
+        
+        <div class="dedication-content">
+<div class="dedication-text" style="font-style: italic; font-size: 38pt; text-align: center;">
+  “Maybe Stories are Just Data with Soul".
+</div>
+
+            <div class="dedication-title">Dr. Brene’ Brown</div>
+        </div>
+    </div>
 
     <!-- Table of Contents -->
     @php $pageNum = 25; @endphp
     <div class="toc-page">
+        <h2 class="cover-title">Table of Contents .</h2>
         @foreach ($usersWithStories as $user)
             @foreach ($user->gratitudeStories as $story)
                 <div class="toc-entry">
